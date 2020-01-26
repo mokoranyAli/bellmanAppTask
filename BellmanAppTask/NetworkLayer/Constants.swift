@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+
+class Constants{
+    
+     let itemsURL = "http://bellman-bd.restart-technology.com/api/home"
+    
+    static let shared = Constants()
+    
+    
+    
+   
+}

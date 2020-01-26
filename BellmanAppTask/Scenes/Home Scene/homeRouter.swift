@@ -16,7 +16,7 @@ class homeRouter: homeWireframeProtocol {
 
     static func createModule() -> UIViewController {
         // Change to get view from storyboard if not using progammatic UI
-        let view = homeViewController(nibName: nil, bundle: nil)
+         let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(homeViewController.self)") as! homeViewController
         let interactor = homeInteractor()
         let router = homeRouter()
         let presenter = homePresenter(interface: view, interactor: interactor, router: router)

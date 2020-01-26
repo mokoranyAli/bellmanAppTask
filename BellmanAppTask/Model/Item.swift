@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class Item {
+    var id: Int?
+    var name :String?
+    var description: String?
+    var photos : [String] = [String]()
+    var category :String?
+}
+

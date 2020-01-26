@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+
+class HomeWorker {
+    
+    private let networkLayer = NetworkManger.shared
+    
+    func getPlaces(completionHandler: @escaping ([[Item]]?) -> ()) {
+        networkLayer.placeList(completionHandler: completionHandler)
+       }
+
+    
+}

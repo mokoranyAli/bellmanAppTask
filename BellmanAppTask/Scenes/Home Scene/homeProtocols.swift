@@ -12,31 +12,45 @@ import Foundation
 
 //MARK: Wireframe -
 protocol homeWireframeProtocol: class {
-
+    
 }
 //MARK: Presenter -
 protocol homePresenterProtocol: class {
-
+    
     var interactor: homeInteractorInputProtocol? { get set }
+    var view: homeViewProtocol? { get set }
+    func viewDidload()
+    var numberOfRows: Int { get }
+    func configure(cell: HomeTableCellView, indexPath: IndexPath)
 }
 
 //MARK: Interactor -
 protocol homeInteractorOutputProtocol: class {
-
+    func placesFetchedSuccessfully(places: [[Item]])
+    func placesFetchingFailed()
     /* Interactor -> Presenter */
 }
 
 protocol homeInteractorInputProtocol: class {
-
+    
     var presenter: homeInteractorOutputProtocol?  { get set }
-
+    func getPlaces()
+    
     /* Presenter -> Interactor */
 }
 
 //MARK: View -
 protocol homeViewProtocol: class {
-
+    
     var presenter: homePresenterProtocol?  { get set }
-
+    func showLoadingIndicator()
+    func hideLoadingIndicator()
+    func reloadData()
+    
     /* Presenter -> ViewController */
+}
+
+protocol HomeTableCellView {
+    func configure(placeDTO: [Item])
+    func reloadData()
 }
